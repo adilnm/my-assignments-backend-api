@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_12_051259) do
+ActiveRecord::Schema.define(version: 2019_12_12_082611) do
+
+  create_table "assignments", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.date "deadline"
+    t.text "description"
+    t.boolean "submitted"
+    t.integer "grade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
@@ -22,17 +33,6 @@ ActiveRecord::Schema.define(version: 2019_12_12_051259) do
 
   create_table "notes", force: :cascade do |t|
     t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "to_dos", force: :cascade do |t|
-    t.string "name"
-    t.string "category"
-    t.date "deadline"
-    t.text "description"
-    t.boolean "submitted"
-    t.integer "grade"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
