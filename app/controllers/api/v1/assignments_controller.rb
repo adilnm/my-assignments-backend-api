@@ -1,8 +1,7 @@
 class Api::V1::AssignmentsController < ApplicationController
   def index
     @assignments=Assignment.all
-
-    render json:@assignments, status:200
+    render json: AssignmentSerializer.new(@assignments), status:200
   end
 
   def show
