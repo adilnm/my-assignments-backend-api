@@ -11,7 +11,6 @@ class Api::V1::AssignmentsController < ApplicationController
   end
 
   def create
-    binding.pry
     @assignment=Assignment.create(assignmet_params)
 
     render json:@assignment, status:200
