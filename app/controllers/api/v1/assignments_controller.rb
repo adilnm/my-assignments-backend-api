@@ -9,4 +9,16 @@ class Api::V1::AssignmentsController < ApplicationController
 
     render json:@assignment, status:200
   end
+
+  def create
+    binding.pry
+    @assignment=Assignment.create(assignmet_params)
+
+    render json:@assignment, status:200
+  end
+
+  private
+    def assignmet_params
+      params.require(:assignment).permit(:name, :category, :description, :grade, :course_id)
+    end
 end
