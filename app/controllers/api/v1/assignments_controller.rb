@@ -16,8 +16,18 @@ class Api::V1::AssignmentsController < ApplicationController
     render json:@assignment, status:200
   end
 
+  def update
+  end
+
+  def destroy
+    @assignment=Assignment.find(params[:id])
+    @assignment.delete
+
+    render json:{AssignmentId: @assignment.id}
+  end
+
   private
     def assignmet_params
-      params.require(:assignment).permit(:name, :category, :description, :grade, :course_id)
+      params.require(:assignment).permit(:name, :category, :description, :grade, :course_id, :deadline)
     end
 end
