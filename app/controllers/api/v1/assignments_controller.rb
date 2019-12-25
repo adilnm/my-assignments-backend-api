@@ -17,6 +17,10 @@ class Api::V1::AssignmentsController < ApplicationController
   end
 
   def update
+    @assignment=Assignment.find(params[:id])
+    @assignment.update(assignmet_params)
+
+    render json:@assignment, status:200
   end
 
   def destroy
