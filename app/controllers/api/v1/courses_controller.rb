@@ -18,7 +18,15 @@ class Api::V1::CoursesController < ApplicationController
   end
 
   def update
-    
+
+  end
+
+  def destroy
+    binding.pry
+    @course=Course.find(params[:id])
+    @course.delete
+
+    render json:{courseId: @course.id}, status:200
   end
 
   private

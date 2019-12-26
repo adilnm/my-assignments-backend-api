@@ -27,7 +27,7 @@ class Api::V1::AssignmentsController < ApplicationController
     @assignment=Assignment.find(params[:id])
     @assignment.delete
 
-    render json:{AssignmentId: @assignment.id}
+    render json:{AssignmentId: @assignment.id}, status:200
   end
 
   private
