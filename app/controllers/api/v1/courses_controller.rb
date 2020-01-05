@@ -12,9 +12,15 @@ class Api::V1::CoursesController < ApplicationController
   end
 
   def create
-    @course=Course.create(course_params)
+    @course=Course.new(course_params)
 
-    render json: @course, status:200
+    if @course.save
+      render json: @course, status:200
+
+    else
+      render json:@course.errors.messages, status:401
+    end
+
   end
 
   def update

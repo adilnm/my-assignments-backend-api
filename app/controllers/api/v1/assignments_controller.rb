@@ -1,6 +1,7 @@
 class Api::V1::AssignmentsController < ApplicationController
   def index
-    @assignments=Assignment.all
+    @assignments=Assignment.order(:name)
+    
     render json: AssignmentSerializer.new(@assignments), status:200
   end
 
@@ -12,8 +13,13 @@ class Api::V1::AssignmentsController < ApplicationController
 
   def create
     @assignment=Assignment.create(assignmet_params)
+    if @assignment.save
+      render json:@assignment, status:200
 
-    render json:@assignment, status:200
+    else
+      render json:@assignment.errors.messages, status:401
+
+    end
   end
 
   def update
@@ -32,6 +38,6 @@ class Api::V1::AssignmentsController < ApplicationController
 
   private
     def assignmet_params
-      params.require(:assignment).permit(:name, :category, :description, :grade, :course_id, :deadline)
+      params.require(:assignment).permit(:name, :category, :description, :grade, :course_id, :deadline, :submitted)
     end
 end
