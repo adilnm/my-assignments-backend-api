@@ -18,6 +18,7 @@ class Api::V1::CoursesController < ApplicationController
       render json: @course, status:200
 
     else
+      # can use @course.errors.full_messages for simplicity
       render json:@course.errors.messages, status:401
     end
 

@@ -1,7 +1,7 @@
 class Api::V1::AssignmentsController < ApplicationController
   def index
     @assignments=Assignment.order(:name)
-    
+
     render json: AssignmentSerializer.new(@assignments), status:200
   end
 
@@ -17,6 +17,7 @@ class Api::V1::AssignmentsController < ApplicationController
       render json:@assignment, status:200
 
     else
+      # can use @assignment.errors.full_messages for simplicity
       render json:@assignment.errors.messages, status:401
 
     end
