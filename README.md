@@ -1,24 +1,16 @@
-# README
+# my-assignments-js-rails-project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This web application helps students organize all the classes they are taking with their respective assignments. It also includes information like the class professor, final grades, deadline and more details about every assignment.
 
-Things you may want to cover:
 
-* Ruby version
+## Installation  and Instructions
 
-* System dependencies
+Fork/Clone this repo, and my-assignment-frontend repo, then navigate to the backend repo directory in your terminal.
 
-* Configuration
+Then, run bundle install to install all gem dependencies.
 
-* Database creation
+Run all rake migrations with rake db:migrate
 
-* Database initialization
+Start up a server using rails s and navigate to the provided url
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Finally navigate to the 'my-assignment-frontend' repo and run 'open index.html' to be able to open the application on your browser.
