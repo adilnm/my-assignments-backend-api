@@ -8,7 +8,7 @@ class Api::V1::CoursesController < ApplicationController
 
   def show
     @course=Course.find(params[:id])
-    render json: @course, status:200
+    render json: CourseSerializer.new(@course), status:200
   end
 
   def create
