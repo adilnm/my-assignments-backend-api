@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_03_071329) do
+ActiveRecord::Schema.define(version: 2020_05_05_002800) do
 
-  create_table "assignments", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "assignment_tables", force: :cascade do |t|
     t.string "name"
     t.string "category"
     t.string "deadline"
     t.text "description"
     t.boolean "submitted", default: false
     t.string "grade", default: "Not Graded Yet"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "course_id"
   end
 
