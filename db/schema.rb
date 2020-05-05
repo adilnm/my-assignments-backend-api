@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_002800) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "assignment_tables", force: :cascade do |t|
+  create_table "assignments", force: :cascade do |t|
     t.string "name"
     t.string "category"
     t.string "deadline"

@@ -1,6 +1,6 @@
 class CreateAssignmentTable < ActiveRecord::Migration[5.2]
   def change
-    create_table :assignment_tables do |t|
+    create_table :assignments do |t|
       t.string :name
       t.string :category
       t.string :deadline
